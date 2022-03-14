@@ -1,0 +1,49 @@
+﻿<Window x:Class="LibraryManagementApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LibraryManagementApplication"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="400" WindowStartupLocation="CenterScreen"
+        >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="5*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="2">
+            
+        </StackPanel>
+        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <!--image login-->
+                <Image Margin="0,0,0,20" Grid.ColumnSpan="2" Height="100" Grid.Row="0" HorizontalAlignment="Center" Source="/Resources/login.png" />
+                <!--username-->
+                <Label FontSize="15" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0">Username</Label>
+                <TextBox TabIndex="0" x:Name="txtUSer" FontSize="14" Grid.Row="1" Grid.Column="1" Width="auto"></TextBox>
+                
+                <!--Password-->
+                <Label FontSize="15" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="0">Password</Label>
+                <PasswordBox TabIndex="1"  x:Name="txtPass" FontSize="14" Grid.Row="2" Grid.Column="1" Width="auto"></PasswordBox>
+            </Grid>
+            
+            <!--login button-->
+            <Button  TabIndex="2" Click="btnLogin_Click" x:Name="btnLogin" FontSize="15" Background="#0066ff" Foreground="White" Margin="0,10,0,0"  Width="70" Height="40" Grid.Row="3">Login</Button>
+        </StackPanel>
+    </Grid>
+</Window>
