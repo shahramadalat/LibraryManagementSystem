@@ -11,7 +11,7 @@ namespace LibraryManagementApplication
     
     internal class Connection
     {
-        public SqlConnection con = new SqlConnection(@"Data Source='" + System.Environment.MachineName + "'; Initial Catalog=LibraryDb; Integrated Security=True; Encrypt=True; TrustServerCertificate=True; User Instance=False");
+        public SqlConnection con = new SqlConnection(@"Data Source=localhost\MSSQLSERVER01; Initial Catalog=LibraryDb; Integrated Security=True; Encrypt=True; TrustServerCertificate=True; User Instance=False");
         public List<string> resultList = new List<string>();
         public void SingleRecordReader(string query, Dictionary<string,string> keyValues)
         { 

@@ -173,16 +173,38 @@ namespace LibraryManagementApplication.Views
             GetLastId();
         }
 
-        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        private async void btnSearch_Click(object sender, RoutedEventArgs e)
         {
+            lblSearch.Visibility = Visibility.Visible;
+            Account account=new Account();
+            if (txtFullname.Text==null ||txtFullname.Text=="")
+            {
+                account.Fullname = null;
+            }
+            else
+            {
+                account.Fullname = txtFullname.Text;
 
+            }
+            if (txtUser.Text == null || txtUser.Text == "")
+            {
+                account.Username = null;
+
+            }
+            else
+            {
+                account.Username = txtUser.Text;
+            }
+            AccountViewModel accountViewModel=new AccountViewModel();
+            var acc = await accountViewModel.GetFilteredAccountsAsync(new Dictionary<string, object>
+            {
+                {"@full",account.Fullname },
+                {"@user",account.Username}
+            });
+            AccountDatagrid.ItemsSource = acc;
         }
 
 
-        private void AccountDatagrid_Selected(object sender, RoutedEventArgs e)
-        {
-          
-        }
 
         private void AccountDatagrid_SelectionChanged_1(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
@@ -202,6 +224,7 @@ namespace LibraryManagementApplication.Views
         {
             txtFullname.Focus();
             clear();
+            GetdatagridItems();
         }
         void clear()
         {

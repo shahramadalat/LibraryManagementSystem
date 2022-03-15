@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Y5DbATrACCOBFq3Ki6khVjSQGYlwGqn34AEk1h/NUu1q7T2dN8N/4Yprx1673iux21wKfbwi41AM00p4sMvteg==",
+  "dgSpecHash": "SyOiC6wcOSKxreWCqRGBJ5rey5bH6hQd+j8ktDaEkP6+nlz6e9QlHPFtdEEA6UszCOBRHRCohwDyZ+R1Camu1Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\shahr\\source\\repos\\LibraryManagementApplication\\LibraryManagementApplication\\LibraryManagementApplication.csproj",
+  "projectFilePath": "C:\\Users\\shahr\\OneDrive\\Desktop\\LibraryManagement\\LibraryManagementSystem\\LibraryManagementApplication.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\shahr\\.nuget\\packages\\azure.core\\1.6.0\\azure.core.1.6.0.nupkg.sha512",
     "C:\\Users\\shahr\\.nuget\\packages\\azure.identity\\1.3.0\\azure.identity.1.3.0.nupkg.sha512",

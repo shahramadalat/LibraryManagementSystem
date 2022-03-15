@@ -93,12 +93,17 @@
                 <Label Grid.Row="2" Grid.Column="0">Recovery Phrase</Label>
                 <TextBox TabIndex="4" x:Name="txtRecovery" Grid.Row="2" Grid.Column="1"></TextBox>
 
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3">
-                    <Button Click="btnInsert_Click" TabIndex="5" x:Name="btnInsert" Background="Green">Insert</Button>
-                    <Button Click="btnUpdate_Click" TabIndex="6" x:Name="btnUpdate">Update</Button>
-                    <Button Click="btnDelete_Click" TabIndex="7" x:Name="btnDelete" Background="DarkRed">Delete</Button>
-                    <Button Click="btnSearch_Click" TabIndex="7" x:Name="btnSearch" Background="CadetBlue">Search</Button>
-                    <Button Click="btnClear_Click" TabIndex="7" x:Name="btnClear" Background="CadetBlue">Clear</Button>
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Button Click="btnInsert_Click" TabIndex="5" x:Name="btnInsert" Background="Green">Insert</Button>
+                        <Button Click="btnUpdate_Click" TabIndex="6" x:Name="btnUpdate">Update</Button>
+                        <Button Click="btnDelete_Click" TabIndex="7" x:Name="btnDelete" Background="DarkRed">Delete</Button>
+                        <Button Click="btnSearch_Click" TabIndex="7" x:Name="btnSearch" Background="CadetBlue">Search</Button>
+                        <Button Click="btnClear_Click" TabIndex="7" x:Name="btnClear" Background="CadetBlue">Clear</Button>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label x:Name="lblSearch" Visibility="Collapsed">search based on Fullname and Username</Label>
+                    </StackPanel>
                 </StackPanel>
             </Grid>
                 <DataGrid

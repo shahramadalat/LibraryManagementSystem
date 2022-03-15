@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "f3266894-7cc3-4734-9441-7fcb4faf67a8": {
+      "ProjectGuid": "f3266894-7cc3-4734-9441-7fcb4faf67a8",
+      "DisplayName": "LibraryManagementApplication",
+      "ColorIndex": 0
+    },
+    "123dd38b-9575-4f85-b64c-b52b6cf7b1fa": {
+      "ProjectGuid": "123dd38b-9575-4f85-b64c-b52b6cf7b1fa",
+      "DisplayName": "LibraryManagementApplication",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}

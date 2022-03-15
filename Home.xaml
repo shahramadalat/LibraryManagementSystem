@@ -36,7 +36,7 @@
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical" Grid.Row="1" Grid.ColumnSpan="2">
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="btnAccount" Click="btnAccount_Click" FontSize="15" Background="#006699" Foreground="White" Width="110" Height="120">Account</Button>
-                <Button FontSize="15" Background="#006699" Foreground="White" Width="110" Height="120">Books</Button>
+                <Button x:Name="btnBooks" Click="btnBooks_Click" FontSize="15" Background="#006699" Foreground="White" Width="110" Height="120">Books</Button>
                 <Button FontSize="15" Background="#006699" Foreground="White" Width="110" Height="120">Account</Button>
                 <Button FontSize="15" Background="#006699" Foreground="White" Width="110" Height="120">Account</Button>
                 <Button FontSize="15" Background="#006699" Foreground="White" Width="110" Height="120">Account</Button>

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\shahr\source\repos\LibraryManagementApplication\LibraryManagementApplication\obj\Debug\net6.0-windows\
+C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\obj\Debug\net6.0-windows\
 LibraryManagementApplication
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\shahr\source\repos\LibraryManagementApplication\LibraryManagementApplication\App.xaml
-3586590209
+C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\App.xaml
+5279690839
 
-9380386202
-2201578750955
-Home.xaml;MainWindow.xaml;Views\AccountView.xaml;
+152131863127
+2201075429221
+Home.xaml;MainWindow.xaml;Views\AccountView.xaml;Views\Books\BooksView.xaml;Views\Books\LanguageView.xaml;
 
 False
 
