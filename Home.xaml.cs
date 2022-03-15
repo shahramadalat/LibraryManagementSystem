@@ -1,5 +1,6 @@
 ﻿using LibraryManagementApplication.Views;
 using LibraryManagementApplication.Views.Books;
+using LibraryManagementApplication.Views.Libraries;
 using System.Windows;
 
 namespace LibraryManagementApplication
@@ -33,6 +34,13 @@ namespace LibraryManagementApplication
         {
             BooksView booksView = new BooksView();
             booksView.ShowDialog();
+        }
+
+        private void btnLibrary_Click(object sender, RoutedEventArgs e)
+        {
+            MainLibraryView lb = new MainLibraryView();
+            lb.ShowDialog();
+                
         }
 
         public Home()

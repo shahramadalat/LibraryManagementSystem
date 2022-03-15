@@ -22,6 +22,12 @@
     <Compile Update="Views\Books\LanguageView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Libraries\AddToLibraryView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Libraries\MainLibraryView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Home.xaml">
@@ -40,6 +46,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Books\LanguageView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Libraries\AddToLibraryView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Libraries\MainLibraryView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

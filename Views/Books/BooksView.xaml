@@ -104,7 +104,7 @@
                         <Button Click="btnClear_Click" TabIndex="10" x:Name="btnClear" Background="CadetBlue">Clear</Button>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Label x:Name="lblSearch" Visibility="Collapsed">search based on Fullname and Username</Label>
+                        <Label x:Name="lblSearch" Visibility="Collapsed">search based on Book name, Author, Publisher, Language and Categorey</Label>
                     </StackPanel>
                 </StackPanel>
             </Grid>
@@ -118,7 +118,7 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Visibility="Collapsed" Binding="{Binding BookId}" Width="*" MinWidth="150" Header="AccountId"></DataGridTextColumn>
                     <DataGridTextColumn Visibility="Collapsed" Binding="{Binding LanguageId}" Width="*" MinWidth="150" Header="LanguageId"></DataGridTextColumn>
-                    <DataGridTextColumn Visibility="Collapsed" Binding="{Binding CategoryId}" Width="*" MinWidth="150" Header="CategoryId"></DataGridTextColumn>
+                    <DataGridTextColumn Visibility="Collapsed" Binding="{Binding CategoreyId}" Width="*" MinWidth="150" Header="CategoryId"></DataGridTextColumn>
                     <DataGridTextColumn Binding="{Binding BookName}" Width="*" MinWidth="150" Header="Book name"></DataGridTextColumn>
                     <DataGridTextColumn Binding="{Binding Author}" Width="*" MinWidth="150" Header="Author"></DataGridTextColumn>
                     <DataGridTextColumn Binding="{Binding Publishar}" Width="*" MinWidth="150" Header="Publisher"></DataGridTextColumn>
@@ -127,9 +127,12 @@
                     <DataGridTextColumn Binding="{Binding CategoreyName}" Width="*" MinWidth="150" Header="Category"></DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
+          
 
         </Grid>
-
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Click="btnChoose_Click" Visibility="Collapsed" x:Name="btnChoose">Choose</Button>
+        </StackPanel>
 
 
     </Grid>

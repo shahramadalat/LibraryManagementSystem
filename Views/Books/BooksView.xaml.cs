@@ -1,5 +1,6 @@
 ﻿using LibraryManagementApplication.Models;
 using LibraryManagementApplication.ViewModels;
+using LibraryManagementApplication.Views.Libraries;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
@@ -17,6 +18,15 @@ namespace LibraryManagementApplication.Views.Books
         public BooksView()
         {
             InitializeComponent();
+            btnChoose.Visibility = Visibility.Collapsed;
+        }
+        public BooksView(string isToChoose)
+        {
+            InitializeComponent();
+            if (isToChoose=="fromAddLibraryNote")
+            {
+                btnChoose.Visibility = Visibility.Visible;
+            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -75,7 +85,7 @@ namespace LibraryManagementApplication.Views.Books
                 book.PublishDate = System.DateTime.Parse(txtPublishDate.Text.ToString());
                 book.Publishar = txtPublisher.Text;
                 book.LanguageId = LanguageId;
-                book.CategoryId = CategoryId;
+                book.CategoreyId = CategoryId;
                 BookViewModel bookViewModel= new BookViewModel();
                 await bookViewModel.ExcuteAsyncWithParameters("insert into Book values(@id,@name,@auth,@pub,@pubdate,@lang,@cat)",
                      new Dictionary<string, object> {
@@ -85,7 +95,7 @@ namespace LibraryManagementApplication.Views.Books
                         {"@pub",book.Publishar },
                         {"@pubdate",book.PublishDate},
                         {"@lang",book.LanguageId},
-                        {"@cat",book.CategoryId},
+                        {"@cat",book.CategoreyId},
                      });
                 clear();
                 AccountDatagrid.ItemsSource = await bookViewModel.GetItemsAsync();
@@ -157,7 +167,7 @@ namespace LibraryManagementApplication.Views.Books
                 item.Publishar = txtPublisher.Text;
                 item.PublishDate = System.DateTime.Parse(txtPublishDate.Text.ToString());
                 item.LanguageId = LanguageId;
-                item.CategoryId = CategoryId;
+                item.CategoreyId = CategoryId;
                 await bookViewModel.ExcuteAsyncWithParameters(@"update Book set BookName=@name, Author = @auth, Publishar=@pub, PublishDate=@pubdate,
                                                                     LanguageId=@lang, CategoreyId = @cat where BookId=@id",
                      new Dictionary<string, object> {
@@ -167,7 +177,7 @@ namespace LibraryManagementApplication.Views.Books
                         {"@pub",item.Publishar },
                         {"@pubdate",item.PublishDate},
                         {"@lang",item.LanguageId},
-                        {"@cat",item.CategoryId},
+                        {"@cat",item.CategoreyId},
                         });
                 UpdateId = 0;
                 GetLastId();
@@ -263,12 +273,12 @@ namespace LibraryManagementApplication.Views.Books
             }
             if (txtCategory.Text == null || txtCategory.Text == "" || CategoryId == 0 || CategoryId == null)
             {
-                item.CategoryId = null;
+                item.CategoreyId = null;
 
             }
             else
             {
-                item.CategoryId = CategoryId;
+                item.CategoreyId = CategoryId;
             }
             #endregion
 
@@ -280,9 +290,8 @@ namespace LibraryManagementApplication.Views.Books
                 {"@name",item.BookName},
                 {"@auth",item.Author},
                 {"@pub",item.Publishar},
-                {"@pubdate",item.PublishDate},
                 {"@lang",item.LanguageId},
-                {"@cat",item.CategoryId},
+                {"@cat",item.CategoreyId},
             });
             AccountDatagrid.ItemsSource = acc;
         }
@@ -299,6 +308,27 @@ namespace LibraryManagementApplication.Views.Books
             LanguageView languageView = new LanguageView();
             languageView.ShowDialog();
             txtLanguage.Text = Language;
+        }
+
+        string chosen_name="";
+        private void btnChoose_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (chosen_name == "" || chosen_name == null || UpdateId == null || UpdateId == 0)
+                {
+                    throw new System.Exception("please choose again");
+                }
+                AddToLibraryView.BookId = UpdateId;
+                AddToLibraryView.BookName= chosen_name;
+                this.Close();
+
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            //AddToLibraryView.BookId = 
         }
 
         private void btnCategorey_Click(object sender, RoutedEventArgs e)
@@ -319,6 +349,7 @@ namespace LibraryManagementApplication.Views.Books
             if (selected != null)
             {
                 UpdateId = selected.BookId;
+                chosen_name = selected.BookName;
                 txtBookName.Text = selected.BookName;
                 txtAuthor.Text = selected.Author;
                 txtPublisher.Text = selected.Publishar;
@@ -328,8 +359,8 @@ namespace LibraryManagementApplication.Views.Books
                 Language = selected.LanguageName;
                 txtCategory.Text = selected.CategoreyName;
                 Category = selected.CategoreyName;
-                CategoryId = selected.CategoryId;
-                MessageBox.Show(LanguageId.ToString(),"language");
+                CategoryId = selected.CategoreyId;
+                
             }
         }
     }

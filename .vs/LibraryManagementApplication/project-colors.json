@@ -10,7 +10,12 @@
       "ProjectGuid": "123dd38b-9575-4f85-b64c-b52b6cf7b1fa",
       "DisplayName": "LibraryManagementApplication",
       "ColorIndex": 1
+    },
+    "3229bb42-2bf6-46b0-b8de-17bb9adebb96": {
+      "ProjectGuid": "3229bb42-2bf6-46b0-b8de-17bb9adebb96",
+      "DisplayName": "LibraryManagementApplication",
+      "ColorIndex": 2
     }
   },
-  "NextColorIndex": 2
+  "NextColorIndex": 3
 }

@@ -8,7 +8,6 @@ namespace LibraryManagementApplication.ViewModels
 {
     internal class AccountViewModel : Parrentconnection
     {
-        public List<Account> accountList = new List<Account>();
         public AccountViewModel()
         {
 
