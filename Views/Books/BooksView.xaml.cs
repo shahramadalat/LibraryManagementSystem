@@ -1,4 +1,6 @@
-﻿using LibraryManagementApplication.ViewModels;
+﻿using LibraryManagementApplication.Models;
+using LibraryManagementApplication.ViewModels;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -9,8 +11,9 @@ namespace LibraryManagementApplication.Views.Books
     /// </summary>
     public partial class BooksView : Window
     {
-        public int LanguageId, CategoryId;
-        public string Language,Category;
+        public static int? LanguageId, CategoryId;
+        public static string Language,Category;
+        int lastid, UpdateId;
         public BooksView()
         {
             InitializeComponent();
@@ -25,36 +28,284 @@ namespace LibraryManagementApplication.Views.Books
             BookViewModel a = new BookViewModel();
             AccountDatagrid.ItemsSource = await a.GetItemsAsync();
         }
-
-        private void btnInsert_Click(object sender, RoutedEventArgs e)
+        async void GetLastId()
         {
+            BookViewModel a = new BookViewModel();
+            var lid = await a.GetScalerValueAsync("select top 1 BookId from Book order by BookId desc");
+            lastid = int.Parse(lid) + 1;
+        }
+        private async void btnInsert_Click(object sender, RoutedEventArgs e)
+        {
+
+            try
+            {
+                if (txtBookName.Text == "" || txtBookName.Text == null)
+                {
+                    txtBookName.Focus();
+                    throw new System.Exception("Book name must be inserted");
+                }
+                if (txtAuthor.Text == "" || txtAuthor.Text == null)
+                {
+                    txtAuthor.Focus();
+                    throw new System.Exception("Author must be inserted");
+                }
+                if (txtPublisher.Text == "" || txtPublisher.Text == null)
+                {
+                    txtPublisher.Focus();
+                    throw new System.Exception("Publisher must be inserted");
+                }
+                if (txtPublishDate.Text == "" || txtPublishDate.Text == null)
+                {
+                    txtPublishDate.Focus();
+                    throw new System.Exception("Publish date must be inserted");
+                }
+                if (LanguageId == null || LanguageId == 0 || txtLanguage.Text =="" || txtLanguage.Text == null )
+                {
+                    throw new System.Exception("please reselect the Language");
+                }
+                if (CategoryId == null || CategoryId == 0 || txtCategory.Text == "" || txtCategory.Text == null)
+                {
+                    throw new System.Exception("please reselect the Categorey");
+                }
+                Book book = new Book();
+                GetLastId();
+                book.BookId = lastid;
+                book.BookName = txtBookName.Text;
+                book.Author = txtAuthor.Text;
+                book.PublishDate = System.DateTime.Parse(txtPublishDate.Text.ToString());
+                book.Publishar = txtPublisher.Text;
+                book.LanguageId = LanguageId;
+                book.CategoryId = CategoryId;
+                BookViewModel bookViewModel= new BookViewModel();
+                await bookViewModel.ExcuteAsyncWithParameters("insert into Book values(@id,@name,@auth,@pub,@pubdate,@lang,@cat)",
+                     new Dictionary<string, object> {
+                        {"@id",book.BookId },
+                        {"@name",book.BookName},
+                        {"@auth",book.Author },
+                        {"@pub",book.Publishar },
+                        {"@pubdate",book.PublishDate},
+                        {"@lang",book.LanguageId},
+                        {"@cat",book.CategoryId},
+                     });
+                clear();
+                AccountDatagrid.ItemsSource = await bookViewModel.GetItemsAsync();
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message,"warrning",MessageBoxButton.OK,MessageBoxImage.Warning);
+            }
 
         }
-
-        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        void clear()
         {
+            txtAuthor.Text = "";
+            txtBookName.Text = "";
+            txtCategory.Text = "";
+            Category = null;
+            CategoryId = 0;
+            txtLanguage.Text = "";
+            Language = null;
+            LanguageId = 0;
+            txtPublishDate.Text = "";
+            txtPublisher.Text = "";
 
         }
-
-        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        private async void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
 
+            try
+            {
+                if (txtBookName.Text == "" || txtBookName.Text == null)
+                {
+                    txtBookName.Focus();
+                    throw new System.Exception("Book name must be inserted");
+                }
+                if (txtAuthor.Text == "" || txtAuthor.Text == null)
+                {
+                    txtAuthor.Focus();
+                    throw new System.Exception("Author must be inserted");
+                }
+                if (txtPublisher.Text == "" || txtPublisher.Text == null)
+                {
+                    txtPublisher.Focus();
+                    throw new System.Exception("Publisher must be inserted");
+                }
+                if (txtPublishDate.Text == "" || txtPublishDate.Text == null)
+                {
+                    txtPublishDate.Focus();
+                    throw new System.Exception("Publish date must be inserted");
+                }
+                if (LanguageId == null || LanguageId == 0 || txtLanguage.Text == "" || txtLanguage.Text == null)
+                {
+                    throw new System.Exception("please reselect the Language");
+                }
+                if (CategoryId == null || CategoryId == 0 || txtCategory.Text == "" || txtCategory.Text == null)
+                {
+                    throw new System.Exception("please reselect the Categorey");
+                }
+                Book item = new Book();
+                BookViewModel bookViewModel = new BookViewModel();
+                int count = int.Parse(await bookViewModel.GetScalerValueAsync($"select count(BookId) from Book where BookId = {UpdateId}"));
+                if (count == 0 || count < 1)
+                {
+                    throw new System.Exception("Unsuccessfull, please try again");
+                }
+
+                item.BookId = UpdateId;
+                item.BookName = txtBookName.Text;
+                item.Author = txtAuthor.Text;
+                item.Publishar = txtPublisher.Text;
+                item.PublishDate = System.DateTime.Parse(txtPublishDate.Text.ToString());
+                item.LanguageId = LanguageId;
+                item.CategoryId = CategoryId;
+                await bookViewModel.ExcuteAsyncWithParameters(@"update Book set BookName=@name, Author = @auth, Publishar=@pub, PublishDate=@pubdate,
+                                                                    LanguageId=@lang, CategoreyId = @cat where BookId=@id",
+                     new Dictionary<string, object> {
+                        {"@id",item.BookId },
+                        {"@name",item.BookName},
+                        {"@auth",item.Author },
+                        {"@pub",item.Publishar },
+                        {"@pubdate",item.PublishDate},
+                        {"@lang",item.LanguageId},
+                        {"@cat",item.CategoryId},
+                        });
+                UpdateId = 0;
+                GetLastId();
+                AccountDatagrid.ItemsSource = await bookViewModel.GetItemsAsync();
+
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "warrning", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
 
-        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        private async void btnDelete_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                BookViewModel bookViewModel = new BookViewModel();
+                await bookViewModel.ExcuteAsyncWithParameters("delete from Book where BookId=@id",
+                    new Dictionary<string, object> {
+                    {"@id",UpdateId }}
+                    );
 
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show("unsuccessfull \n" + ex.Message, "warrning", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+            GetdatagridItems();
+            clear();
+            GetLastId();
+        }
+
+        private async void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            #region validation for search
+
+            lblSearch.Visibility = Visibility.Visible;
+            Book item = new Book();
+            if (txtBookName.Text == null || txtBookName.Text == "")
+            {
+                item.BookName = null;
+            }
+            else
+            {
+                item.BookName = txtBookName.Text;
+
+            }
+            if (txtAuthor.Text == null || txtAuthor.Text == "")
+            {
+                item.Author = null;
+
+            }
+            else
+            {
+                item.Author = txtAuthor.Text;
+            }
+            if (txtPublisher.Text == null || txtPublisher.Text == "")
+            {
+                item.Publishar = null;
+
+            }
+            else
+            {
+                item.Publishar = txtPublisher.Text;
+            }
+            if (txtPublisher.Text == null || txtPublisher.Text == "")
+            {
+                item.Publishar = null;
+
+            }
+            else
+            {
+                item.Publishar = txtPublisher.Text;
+            }
+            if (txtPublishDate.Text == null || txtPublishDate.Text == "")
+            {
+                item.PublishDate = null;
+
+            }
+            else
+            {
+                item.PublishDate = System.DateTime.Parse(txtPublishDate.Text.ToString());
+            }
+            if (txtLanguage.Text == null || txtLanguage.Text == "" || LanguageId==0||LanguageId==null)
+            {
+                item.LanguageId = null;
+
+            }
+            else
+            {
+                item.LanguageId = LanguageId;
+            }
+            if (txtCategory.Text == null || txtCategory.Text == "" || CategoryId == 0 || CategoryId == null)
+            {
+                item.CategoryId = null;
+
+            }
+            else
+            {
+                item.CategoryId = CategoryId;
+            }
+            #endregion
+
+
+
+            BookViewModel bookViewModel = new BookViewModel();
+            var acc = await bookViewModel.GetFilteredAccountsAsync(new Dictionary<string, object>
+            {
+                {"@name",item.BookName},
+                {"@auth",item.Author},
+                {"@pub",item.Publishar},
+                {"@pubdate",item.PublishDate},
+                {"@lang",item.LanguageId},
+                {"@cat",item.CategoryId},
+            });
+            AccountDatagrid.ItemsSource = acc;
         }
 
         private void btnClear_Click(object sender, RoutedEventArgs e)
         {
-
+            txtBookName.Focus();
+            clear();
+            GetdatagridItems();
         }
 
         private void btnLanguage_Click(object sender, RoutedEventArgs e)
         {
             LanguageView languageView = new LanguageView();
             languageView.ShowDialog();
+            txtLanguage.Text = Language;
+        }
+
+        private void btnCategorey_Click(object sender, RoutedEventArgs e)
+        {
+            CategoryView categoryView = new CategoryView();
+            categoryView.ShowDialog();
+            txtCategory.Text = Category;
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
@@ -64,7 +315,22 @@ namespace LibraryManagementApplication.Views.Books
 
         private void AccountDatagrid_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
-
+            var selected = (Book)AccountDatagrid.SelectedItem;
+            if (selected != null)
+            {
+                UpdateId = selected.BookId;
+                txtBookName.Text = selected.BookName;
+                txtAuthor.Text = selected.Author;
+                txtPublisher.Text = selected.Publishar;
+                txtPublishDate.Text = selected.PublishDate.ToString();
+                txtLanguage.Text = selected.LanguageName;
+                LanguageId = selected.LanguageId;
+                Language = selected.LanguageName;
+                txtCategory.Text = selected.CategoreyName;
+                Category = selected.CategoreyName;
+                CategoryId = selected.CategoryId;
+                MessageBox.Show(LanguageId.ToString(),"language");
+            }
         }
     }
 }

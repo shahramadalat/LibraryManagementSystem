@@ -85,7 +85,7 @@
                         <Button Click="btnClear_Click" TabIndex="10" x:Name="btnClear" Background="CadetBlue">Clear</Button>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Label x:Name="lblSearch" Visibility="Collapsed">search based on Fullname and Username</Label>
+                        <Label x:Name="lblSearch" Visibility="Collapsed">search based on Language</Label>
                     </StackPanel>
                 </StackPanel>
             </Grid>

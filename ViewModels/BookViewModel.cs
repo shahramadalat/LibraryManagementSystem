@@ -18,7 +18,14 @@ namespace LibraryManagementApplication.ViewModels
             return accounts.ToList();
         }
 
+        public async Task<List<Book>> GetFilteredAccountsAsync(Dictionary<string, object> parameters)
+        {
+            await con.OpenAsync();
+            var accounts = await con.QueryAsync<Book>("sp_GetFilteredBook", parameters, commandType: System.Data.CommandType.StoredProcedure);
+            await con.CloseAsync();
+            return accounts.ToList();
 
+        }
 
 
     }

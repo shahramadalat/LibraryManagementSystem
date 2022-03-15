@@ -1,0 +1,112 @@
+﻿<Window x:Class="LibraryManagementApplication.Views.Books.CategoryView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LibraryManagementApplication.Views.Books"
+        mc:Ignorable="d"
+        Title="CategoryView" Height="450" Width="800"
+       WindowStartupLocation="CenterScreen"
+         WindowStyle="None"
+         WindowState="Maximized"
+        Loaded="Window_Loaded">
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Width" Value="auto"/>
+            <Setter Property="MinWidth" Value="150"></Setter>
+            <Setter Property="Height" Value="30"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#0066ff"/>
+            <Setter Property="Foreground" Value="white"/>
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Margin" Value="10,0,0,0"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="9*"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+
+        <!--Title place-->
+        <StackPanel Height="29" Grid.Row="0" Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Top" Background="#0066ff">
+            <Label FontSize="15" Foreground="White">Category</Label>
+        </StackPanel>
+        <!--Exit place-->
+        <StackPanel Grid.Row="0" Background="#0066ff" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right">
+
+            <Button x:Name="btnExit" Click="btnExit_Click" BorderBrush="#0066ff" BorderThickness="0" Background="Transparent" Foreground="White" Margin="0,0,10,0" FontSize="15" Width="40" Height="29" FontFamily="Microsoft JhengHei UI">X</Button>
+        </StackPanel>
+
+        <!--main windows place-->
+        <Grid  Grid.Row="1" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+
+
+                </Grid.RowDefinitions>
+                <!--Language-->
+
+                <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label >Category</Label>
+                    <TextBox TabIndex="0" x:Name="txtCategory" Grid.Column="1" ></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Button Click="btnInsert_Click" TabIndex="6" x:Name="btnInsert" Background="Green">Insert</Button>
+                        <Button Click="btnUpdate_Click" TabIndex="7" x:Name="btnUpdate">Update</Button>
+                        <Button Click="btnDelete_Click" TabIndex="8" x:Name="btnDelete" Background="DarkRed">Delete</Button>
+                        <Button Click="btnSearch_Click" TabIndex="9" x:Name="btnSearch" Background="CadetBlue">Search</Button>
+                        <Button Click="btnClear_Click" TabIndex="10" x:Name="btnClear" Background="CadetBlue">Clear</Button>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Label x:Name="lblSearch" Visibility="Collapsed">search based on Categorey</Label>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+            <DataGrid
+                    Grid.Row="1"
+                    x:Name="AccountDatagrid"
+                    ItemsSource="{Binding accounts}"
+                    SelectionChanged="AccountDatagrid_SelectionChanged_1"  
+                    
+                          >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Visibility="Collapsed" Binding="{Binding CategoreyId}" Width="*" MinWidth="150" Header="AccountId"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding CategoreyName}" Width="*" MinWidth="150" Header="Categorey"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                <Button x:Name="btnChoose" Click="btnChoose_Click">Choose</Button>
+            </StackPanel>
+        </Grid>
+
+
+
+    </Grid>
+</Window>

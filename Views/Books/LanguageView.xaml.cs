@@ -21,7 +21,7 @@ namespace LibraryManagementApplication.Views.Books
     /// </summary>
     public partial class LanguageView : Window
     {
-        int UpdateId;
+        public int UpdateId;
         public LanguageView()
         {
             InitializeComponent();
@@ -95,20 +95,25 @@ namespace LibraryManagementApplication.Views.Books
             }
         }
 
-        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        private async void btnDelete_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                //DialogResult q = MessageBox.Show("Are you sure to delete this? ","Quetion",MessageBoxButton.YesNo,MessageBoxImage.Question);
-                //if (MessageBoxResult.Yes)
-                //{
-
-                //}
-                //LanguageViewModel languageViewModel= new LanguageViewModel();
-                //await accountViewModel.ExcuteAsyncWithParameters("delete from Account where AccountId=@id",
-                //    new Dictionary<string, object> {
-                //    {"@id",UpdateId }}
-                //    );
+                MessageBoxResult mr = MessageBox.Show("Are you sure to delete this? ", "Quetion", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (mr.Equals(MessageBoxResult.Yes))
+                {
+                    LanguageViewModel languageViewModel = new LanguageViewModel();
+                    await languageViewModel.ExcuteAsyncWithParameters("delete from Language where LanguageId=@id",
+                        new Dictionary<string, object> {
+                    {"@id",UpdateId }}
+                        );
+                    MessageBox.Show("deleted");
+                }
+                else
+                {
+                    MessageBox.Show("not deleted");
+                }
+                
 
             }
             catch (System.Exception ex)
@@ -121,14 +126,23 @@ namespace LibraryManagementApplication.Views.Books
           
         }
 
-        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        private async void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-
+            lblSearch.Visibility = Visibility.Visible;
+            Language language= new Language();
+            language.LanguageName = txtLanguage.Text;
+            LanguageViewModel languageViewModel = new LanguageViewModel();
+            var item = await languageViewModel.GetFilteredAccountsAsync(new Dictionary<string, object>
+            {
+                {"@lang",language.LanguageName}
+            });
+            AccountDatagrid.ItemsSource = item;
         }
 
         private void btnClear_Click(object sender, RoutedEventArgs e)
         {
-
+            clear();
+            GetdatagridItems();
         }
 
         private void AccountDatagrid_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
@@ -138,10 +152,11 @@ namespace LibraryManagementApplication.Views.Books
             {
                 UpdateId = selected.LanguageId;
                 txtLanguage.Text = selected.LanguageName;
+                chosen_Language = selected.LanguageName;
             }
 
         }
-
+        string chosen_Language;
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -149,10 +164,26 @@ namespace LibraryManagementApplication.Views.Books
 
         private void btnChoose_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                if (chosen_Language == "" || chosen_Language == null || UpdateId == 0 || UpdateId == null)
+                {
+                    throw new Exception("please ensure to choose a record, try again");
+                }
+                BooksView.LanguageId = UpdateId;
+                BooksView.Language = chosen_Language;
+                this.Close();
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
         void clear()
         {
+    
             txtLanguage.Text = "";
             
         }

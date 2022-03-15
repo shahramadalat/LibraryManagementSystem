@@ -93,7 +93,7 @@
                 <!--Category-->
                 <Label Grid.Row="3"  Grid.Column="0">Category</Label>
                 <TextBox IsEnabled="False" Height="30" TabIndex="5" x:Name="txtCategory" Grid.Row="3" Grid.Column="1"></TextBox>
-                <Button Grid.Column="2" Grid.Row="3" Width="90" Height="30">Go to Category</Button>
+                <Button Click="btnCategorey_Click" x:Name="btnCategorey" Grid.Column="2" Grid.Row="3" Width="90" Height="30">Go to Category</Button>
                 
                 <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">

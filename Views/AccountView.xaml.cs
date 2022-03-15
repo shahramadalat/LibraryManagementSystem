@@ -90,7 +90,6 @@ namespace LibraryManagementApplication.Views
             {
                 MessageBox.Show(ex.Message,"warrning",MessageBoxButton.OK,MessageBoxImage.Warning);
             }
-            
         }
 
         private async void btnUpdate_Click(object sender, RoutedEventArgs e)

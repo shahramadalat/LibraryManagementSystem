@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\App.xaml
-5279690839
+61343536181
 
-152131863127
+18206060424
 2201075429221
-Home.xaml;MainWindow.xaml;Views\AccountView.xaml;Views\Books\BooksView.xaml;Views\Books\LanguageView.xaml;
+Home.xaml;MainWindow.xaml;Views\AccountView.xaml;Views\Books\BooksView.xaml;Views\Books\CategoryView.xaml;Views\Books\LanguageView.xaml;
 
 False
 

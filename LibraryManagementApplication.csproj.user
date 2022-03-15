@@ -16,6 +16,9 @@
     <Compile Update="Views\Books\BooksView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Books\CategoryView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Books\LanguageView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -31,6 +34,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Books\BooksView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Books\CategoryView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Books\LanguageView.xaml">

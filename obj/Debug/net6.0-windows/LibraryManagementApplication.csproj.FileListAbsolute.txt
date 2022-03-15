@@ -124,3 +124,5 @@ C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\obj\De
 C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\obj\Debug\net6.0-windows\Views\Books\BooksView.baml
 C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\obj\Debug\net6.0-windows\Views\Books\LanguageView.g.cs
 C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\obj\Debug\net6.0-windows\Views\Books\LanguageView.baml
+C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\obj\Debug\net6.0-windows\Views\Books\CategoryView.g.cs
+C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\obj\Debug\net6.0-windows\Views\Books\CategoryView.baml

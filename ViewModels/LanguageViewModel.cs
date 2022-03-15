@@ -15,5 +15,13 @@ namespace LibraryManagementApplication.ViewModels
             await con.CloseAsync();
             return accounts.ToList();
         }
+        public async Task<List<Language>> GetFilteredAccountsAsync(Dictionary<string, object> parameters)
+        {
+            await con.OpenAsync();
+            var accounts = await con.QueryAsync<Language>("sp_GetFilteredLanguage", parameters, commandType: System.Data.CommandType.StoredProcedure);
+            await con.CloseAsync();
+            return accounts.ToList();
+
+        }
     }
 }
