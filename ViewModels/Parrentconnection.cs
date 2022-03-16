@@ -14,6 +14,7 @@ namespace LibraryManagementApplication.ViewModels
         public SqlConnection con = new SqlConnection(@"Data Source=localhost\MSSQLSERVER01; Initial Catalog=LibraryDb; Integrated Security=True; Encrypt=True; TrustServerCertificate=True; User Instance=False");
         public async Task<string> GetScalerValueAsync(string sql)
         {
+            await con.CloseAsync();
             await con.OpenAsync();
             var lastId = await con.ExecuteScalarAsync(sql);
             await con.CloseAsync();

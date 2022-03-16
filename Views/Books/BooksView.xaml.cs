@@ -38,12 +38,7 @@ namespace LibraryManagementApplication.Views.Books
             BookViewModel a = new BookViewModel();
             AccountDatagrid.ItemsSource = await a.GetItemsAsync();
         }
-        async void GetLastId()
-        {
-            BookViewModel a = new BookViewModel();
-            var lid = await a.GetScalerValueAsync("select top 1 BookId from Book order by BookId desc");
-            lastid = int.Parse(lid) + 1;
-        }
+
         private async void btnInsert_Click(object sender, RoutedEventArgs e)
         {
 
@@ -78,7 +73,9 @@ namespace LibraryManagementApplication.Views.Books
                     throw new System.Exception("please reselect the Categorey");
                 }
                 Book book = new Book();
-                GetLastId();
+                BookViewModel bookViewModel = new BookViewModel();
+                var lid = await bookViewModel.GetScalerValueAsync("select top 1 BookId from Book order by BookId desc");
+                lastid = int.Parse(lid) + 1;
                 book.BookId = lastid;
                 book.BookName = txtBookName.Text;
                 book.Author = txtAuthor.Text;
@@ -86,7 +83,6 @@ namespace LibraryManagementApplication.Views.Books
                 book.Publishar = txtPublisher.Text;
                 book.LanguageId = LanguageId;
                 book.CategoreyId = CategoryId;
-                BookViewModel bookViewModel= new BookViewModel();
                 await bookViewModel.ExcuteAsyncWithParameters("insert into Book values(@id,@name,@auth,@pub,@pubdate,@lang,@cat)",
                      new Dictionary<string, object> {
                         {"@id",book.BookId },
@@ -180,7 +176,8 @@ namespace LibraryManagementApplication.Views.Books
                         {"@cat",item.CategoreyId},
                         });
                 UpdateId = 0;
-                GetLastId();
+                var lid = await bookViewModel.GetScalerValueAsync("select top 1 BookId from Book order by BookId desc");
+                lastid = int.Parse(lid) + 1;
                 AccountDatagrid.ItemsSource = await bookViewModel.GetItemsAsync();
 
             }
@@ -192,9 +189,9 @@ namespace LibraryManagementApplication.Views.Books
 
         private async void btnDelete_Click(object sender, RoutedEventArgs e)
         {
+            BookViewModel bookViewModel = new BookViewModel();
             try
             {
-                BookViewModel bookViewModel = new BookViewModel();
                 await bookViewModel.ExcuteAsyncWithParameters("delete from Book where BookId=@id",
                     new Dictionary<string, object> {
                     {"@id",UpdateId }}
@@ -208,7 +205,8 @@ namespace LibraryManagementApplication.Views.Books
 
             GetdatagridItems();
             clear();
-            GetLastId();
+            var lid = await bookViewModel.GetScalerValueAsync("select top 1 BookId from Book order by BookId desc");
+            lastid = int.Parse(lid) + 1;
         }
 
         private async void btnSearch_Click(object sender, RoutedEventArgs e)
