@@ -30,6 +30,14 @@ namespace LibraryManagementApplication.ViewModels
             return 1;
         }
 
+        public async Task<int> ExcuteAsync(string sql)
+        {
+            await con.OpenAsync();
+            await con.ExecuteAsync(sql);
+            await con.CloseAsync();
+            return 1;
+        }
+
 
     }
    

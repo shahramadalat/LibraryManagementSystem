@@ -119,7 +119,7 @@
 
         </Grid>
         <StackPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
-            <Button x:Name="invoice" Width="90">insert invoice</Button>
+            <Button Click="invoice_Click" x:Name="invoice" Width="90">insert invoice</Button>
             <Label Margin="15,0,0,0">Income Date:</Label>
             <DatePicker x:Name="txtDate"  Height="40" TabIndex="3"  Grid.Row="2" Grid.Column="1"></DatePicker>
             <Label Margin="15,0,0,0">Invoice Id:</Label>

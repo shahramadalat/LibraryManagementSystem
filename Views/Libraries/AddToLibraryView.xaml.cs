@@ -22,6 +22,7 @@ namespace LibraryManagementApplication.Views.Libraries
         int LibraryInvoiceId = 0;
         public static int BookId=0;
         public static string BookName="";
+        int AccountId = 0;
         public AddToLibraryView()
         {
             InitializeComponent();
@@ -92,7 +93,7 @@ namespace LibraryManagementApplication.Views.Libraries
         private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
             GetdatagridItems();
-            txtDate.DisplayDate = DateTime.Now;
+            txtDate.SelectedDate = DateTime.Now;
             LibraryNoteViewModel libraryNoteViewModel = new LibraryNoteViewModel();
             var lid = await libraryNoteViewModel.GetScalerValueAsync("select isnull(max(LibraryInvoiceId),0) from LibraryInvoice");
             LibraryInvoiceId = int.Parse(lid) + 1;
@@ -201,5 +202,52 @@ namespace LibraryManagementApplication.Views.Libraries
                 txtPrice.Text = selected.BookPrice.ToString();
             }
         }
+
+        private async void invoice_Click(object sender, RoutedEventArgs e)
+        {
+            try 
+            { 
+                if (txtDate.Text==""||txtDate.Text==null)
+                {
+                    throw new Exception("please select the date");
+                }
+                var datagridCount = AccountDatagrid.Items.Count;
+                if (datagridCount <= 0)
+                {
+                    throw new Exception("please insert records to the list");
+                }
+                LibraryNoteViewModel libraryNoteViewModel = new LibraryNoteViewModel();
+                AccountId = 1;
+                await libraryNoteViewModel.ExcuteAsync($"insert into LibraryInvoice values({int.Parse(lblInvoiceId.Content.ToString().Trim())},'{txtDate.SelectedDate}',{AccountId})");
+                List<LibraryNote> libraryNotes = await libraryNoteViewModel.GetAccountsAsync();
+                InvoicePrint invoicePrint = new InvoicePrint(lblInvoiceId.Content.ToString(),AccountId,txtDate.SelectedDate);
+                invoicePrint.ShowDialog();
+                foreach (var item in libraryNotes)
+                {
+                    var id = await libraryNoteViewModel.GetScalerValueAsync("select isnull(max(LibraryId),0)+1 from Library");
+                    await libraryNoteViewModel.ExcuteAsync($@"insert into Library 
+                    values({id},{item.BookId},{item.Quantity},{int.Parse(lblInvoiceId.Content.ToString().Trim())},{item.BookPrice})");
+                }
+                var libraryCount = await libraryNoteViewModel.GetScalerValueAsync($"select count(LibraryInvoiceId) from Library where LibraryInvoiceId={lblInvoiceId.Content}");
+                if (int.Parse(libraryCount) <= 0)
+                {
+                    await libraryNoteViewModel.ExcuteAsync($"delete from LibraryInvoice where LibraryInvoiceId={lblInvoiceId.Content}");
+                    await libraryNoteViewModel.ExcuteAsync($"delete from Library where LibraryInvoiceId={lblInvoiceId.Content}");
+                    throw new Exception("please try again");
+                }
+                else
+                {
+                    await libraryNoteViewModel.ExcuteAsync($"delete from LibraryNote");
+                    MessageBox.Show("successfull");
+                    lblInvoiceId.Content = await libraryNoteViewModel.GetScalerValueAsync($"select isnull(max(LibraryInvoiceId),0)+1 from LibraryInvoice");
+                    GetdatagridItems();
+                    clear();
+                }
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show("unsuccessfull \n" + ex.Message, "warrning", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+}
     }
 }

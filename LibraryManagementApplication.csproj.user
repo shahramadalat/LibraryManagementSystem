@@ -25,6 +25,12 @@
     <Compile Update="Views\Libraries\AddToLibraryView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Libraries\InvoicePrint.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Libraries\LibraryInvoice.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Libraries\MainLibraryView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -49,6 +55,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Libraries\AddToLibraryView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Libraries\InvoicePrint.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Libraries\LibraryInvoice.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Libraries\MainLibraryView.xaml">

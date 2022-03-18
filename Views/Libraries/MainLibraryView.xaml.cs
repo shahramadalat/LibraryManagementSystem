@@ -31,7 +31,8 @@ namespace LibraryManagementApplication.Views.Libraries
 
         private void btnLibraryInvoice_Click(object sender, RoutedEventArgs e)
         {
-
+            LibraryInvoice libraryInvoice = new LibraryInvoice();
+            libraryInvoice.ShowDialog();
         }
 
         private void btnAddToLibrary_Click(object sender, RoutedEventArgs e)

@@ -32,6 +32,7 @@ namespace LibraryManagementApplication.Views.Books
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             GetdatagridItems();
+            
         }
         async void GetdatagridItems()
         {

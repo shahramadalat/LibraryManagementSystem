@@ -36,7 +36,7 @@ namespace LibraryManagementApplication.Views
        async void GetLastId()
         {
             AccountViewModel a = new AccountViewModel();
-            var lid = await a.GetScalerValueAsync("select top 1 AccountId from Account order by AccountId desc");
+            var lid = await a.GetScalerValueAsync("select isnull(max(AccountId),0) from Account");
             lastid = int.Parse(lid) + 1;
         }
 

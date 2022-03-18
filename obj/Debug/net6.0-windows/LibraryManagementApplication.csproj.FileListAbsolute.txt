@@ -130,3 +130,7 @@ C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\obj\De
 C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\obj\Debug\net6.0-windows\Views\Libraries\MainLibraryView.g.cs
 C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\obj\Debug\net6.0-windows\Views\Libraries\AddToLibraryView.baml
 C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\obj\Debug\net6.0-windows\Views\Libraries\MainLibraryView.baml
+C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\obj\Debug\net6.0-windows\Views\Libraries\InvoicePrint.g.cs
+C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\obj\Debug\net6.0-windows\Views\Libraries\InvoicePrint.baml
+C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\obj\Debug\net6.0-windows\Views\Libraries\LibraryInvoice.g.cs
+C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\obj\Debug\net6.0-windows\Views\Libraries\LibraryInvoice.baml
