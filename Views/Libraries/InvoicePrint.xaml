@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LibraryManagementApplication.Views.Libraries"
         mc:Ignorable="d"
-        Title="InvoicePrint" Height="1056" Width="816"
+        Title="InvoicePrint" Height="auto" Width="816"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         Loaded="Window_Loaded"

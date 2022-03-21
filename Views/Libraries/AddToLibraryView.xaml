@@ -124,6 +124,7 @@
             <DatePicker x:Name="txtDate"  Height="40" TabIndex="3"  Grid.Row="2" Grid.Column="1"></DatePicker>
             <Label Margin="15,0,0,0">Invoice Id:</Label>
             <Label  x:Name="lblInvoiceId" IsEnabled="False" >6</Label>
+            
         </StackPanel>
 
 

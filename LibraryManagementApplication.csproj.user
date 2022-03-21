@@ -22,6 +22,15 @@
     <Compile Update="Views\Books\LanguageView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Borrow\AddBorrowView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Borrow\BorrowMainView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Borrow\PersonView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Libraries\AddToLibraryView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -52,6 +61,15 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Books\LanguageView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Borrow\AddBorrowView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Borrow\BorrowMainView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Borrow\PersonView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Libraries\AddToLibraryView.xaml">

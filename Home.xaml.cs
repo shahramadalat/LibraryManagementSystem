@@ -1,5 +1,7 @@
-﻿using LibraryManagementApplication.Views;
+﻿using LibraryManagementApplication.Models;
+using LibraryManagementApplication.Views;
 using LibraryManagementApplication.Views.Books;
+using LibraryManagementApplication.Views.Borrow;
 using LibraryManagementApplication.Views.Libraries;
 using System.Windows;
 
@@ -41,6 +43,18 @@ namespace LibraryManagementApplication
             MainLibraryView lb = new MainLibraryView();
             lb.ShowDialog();
                 
+        }
+
+        private void btnPerson_Click(object sender, RoutedEventArgs e)
+        {
+            PersonView personView= new PersonView();
+            personView.ShowDialog();
+        }
+
+        private void btnBorrow_Click(object sender, RoutedEventArgs e)
+        {
+            BorrowMainView borrowMainView=new BorrowMainView();
+            borrowMainView.ShowDialog();
         }
 
         public Home()

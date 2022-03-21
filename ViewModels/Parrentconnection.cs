@@ -11,7 +11,7 @@ namespace LibraryManagementApplication.ViewModels
 {
     internal class Parrentconnection
     {
-        public SqlConnection con = new SqlConnection(@"Data Source=localhost\MSSQLSERVER01; Initial Catalog=LibraryDb; Integrated Security=True; Encrypt=True; TrustServerCertificate=True; User Instance=False");
+        public SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-IRGJ8GC; Initial Catalog=LibraryDb; Integrated Security=True; Encrypt=True; TrustServerCertificate=True; User Instance=False");
         public async Task<string> GetScalerValueAsync(string sql)
         {
             await con.CloseAsync();

@@ -1,5 +1,6 @@
 ﻿using LibraryManagementApplication.Models;
 using LibraryManagementApplication.ViewModels;
+using LibraryManagementApplication.Views.Borrow;
 using LibraryManagementApplication.Views.Libraries;
 using System.Collections.Generic;
 using System.Windows;
@@ -15,6 +16,7 @@ namespace LibraryManagementApplication.Views.Books
         public static int? LanguageId, CategoryId;
         public static string Language,Category;
         int lastid, UpdateId;
+        string IsToChoose = "";
         public BooksView()
         {
             InitializeComponent();
@@ -23,10 +25,20 @@ namespace LibraryManagementApplication.Views.Books
         public BooksView(string isToChoose)
         {
             InitializeComponent();
+            IsToChoose= isToChoose;
+            if (IsToChoose == "fromLibraryInvoice")
+            {
+                btnChoose.Visibility = Visibility.Visible;
+            }
             if (isToChoose=="fromAddLibraryNote")
             {
                 btnChoose.Visibility = Visibility.Visible;
             }
+            if (IsToChoose=="fromAddBorrow")
+            {
+                btnChoose.Visibility = Visibility.Visible;
+            }
+           
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -75,7 +87,7 @@ namespace LibraryManagementApplication.Views.Books
                 }
                 Book book = new Book();
                 BookViewModel bookViewModel = new BookViewModel();
-                var lid = await bookViewModel.GetScalerValueAsync("select top 1 BookId from Book order by BookId desc");
+                var lid = await bookViewModel.GetScalerValueAsync("select isnull(max(BookId),0) from Book");
                 lastid = int.Parse(lid) + 1;
                 book.BookId = lastid;
                 book.BookName = txtBookName.Text;
@@ -177,8 +189,6 @@ namespace LibraryManagementApplication.Views.Books
                         {"@cat",item.CategoreyId},
                         });
                 UpdateId = 0;
-                var lid = await bookViewModel.GetScalerValueAsync("select top 1 BookId from Book order by BookId desc");
-                lastid = int.Parse(lid) + 1;
                 AccountDatagrid.ItemsSource = await bookViewModel.GetItemsAsync();
 
             }
@@ -314,6 +324,29 @@ namespace LibraryManagementApplication.Views.Books
         {
             try
             {
+                if (IsToChoose=="fromLibraryInvoice")
+                {
+                    if (chosen_name == "" || chosen_name == null || UpdateId == null || UpdateId == 0)
+                    {
+                        throw new System.Exception("please choose again");
+                    }
+                    LibraryInvoice.BookId = UpdateId;
+                    LibraryInvoice.BookName = chosen_name;
+                    this.Close();
+                    return;
+                }
+                if (IsToChoose== "fromAddBorrow")
+                {
+                    if (chosen_name == "" || chosen_name == null || UpdateId == null || UpdateId == 0)
+                    {
+                        throw new System.Exception("please choose again");
+                    }
+                    AddBorrowView.BookId = UpdateId;
+                    AddBorrowView.BookName = chosen_name;
+                    this.Close();
+                    return;
+                }
+
                 if (chosen_name == "" || chosen_name == null || UpdateId == null || UpdateId == 0)
                 {
                     throw new System.Exception("please choose again");

@@ -63,7 +63,6 @@ C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\bin\De
 C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\bin\Debug\net6.0-windows\LibraryManagementApplication.deps.json
 C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\bin\Debug\net6.0-windows\LibraryManagementApplication.runtimeconfig.json
 C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\bin\Debug\net6.0-windows\LibraryManagementApplication.dll
-C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\bin\Debug\net6.0-windows\ref\LibraryManagementApplication.dll
 C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\bin\Debug\net6.0-windows\LibraryManagementApplication.pdb
 C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\bin\Debug\net6.0-windows\Azure.Core.dll
 C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\bin\Debug\net6.0-windows\Azure.Identity.dll
@@ -134,3 +133,10 @@ C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\obj\De
 C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\obj\Debug\net6.0-windows\Views\Libraries\InvoicePrint.baml
 C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\obj\Debug\net6.0-windows\Views\Libraries\LibraryInvoice.g.cs
 C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\obj\Debug\net6.0-windows\Views\Libraries\LibraryInvoice.baml
+C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\obj\Debug\net6.0-windows\refint\LibraryManagementApplication.dll
+C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\obj\Debug\net6.0-windows\Views\Borrow\PersonView.g.cs
+C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\obj\Debug\net6.0-windows\Views\Borrow\PersonView.baml
+C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\obj\Debug\net6.0-windows\Views\Borrow\AddBorrowView.g.cs
+C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\obj\Debug\net6.0-windows\Views\Borrow\BorrowMainView.g.cs
+C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\obj\Debug\net6.0-windows\Views\Borrow\AddBorrowView.baml
+C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\obj\Debug\net6.0-windows\Views\Borrow\BorrowMainView.baml

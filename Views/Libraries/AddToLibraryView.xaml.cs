@@ -249,5 +249,10 @@ namespace LibraryManagementApplication.Views.Libraries
                 MessageBox.Show("unsuccessfull \n" + ex.Message, "warrning", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
 }
+
+        private void btnChoosePerson_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

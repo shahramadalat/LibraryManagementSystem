@@ -38,8 +38,8 @@
                 <Button x:Name="btnAccount" Click="btnAccount_Click" FontSize="15" Background="#006699" Foreground="White" Width="110" Height="120">Account</Button>
                 <Button x:Name="btnBooks" Click="btnBooks_Click" FontSize="15" Background="#006699" Foreground="White" Width="110" Height="120">Books</Button>
                 <Button x:Name="btnLibrary" Click="btnLibrary_Click" FontSize="15" Background="#006699" Foreground="White" Width="110" Height="120">Library</Button>
-                <Button FontSize="15" Background="#006699" Foreground="White" Width="110" Height="120">Account</Button>
-                <Button FontSize="15" Background="#006699" Foreground="White" Width="110" Height="120">Account</Button>
+                <Button x:Name="btnPerson" Click="btnPerson_Click" FontSize="15" Background="#006699" Foreground="White" Width="110" Height="120">Person</Button>
+                <Button x:Name="btnBorrow" Click="btnBorrow_Click" FontSize="15" Background="#006699" Foreground="White" Width="110" Height="120">Borrow</Button>
                 
             </StackPanel>
             <StackPanel Orientation="Horizontal">

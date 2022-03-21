@@ -26,19 +26,16 @@ namespace LibraryManagementApplication.Views
         private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
           GetdatagridItems();
-            GetLastId(); 
+            AccountViewModel a = new AccountViewModel();
+            var lid = await a.GetScalerValueAsync("select isnull(max(AccountId),0) from Account");
+            lastid = int.Parse(lid) + 1;
         }
         async void GetdatagridItems()
         {
             AccountViewModel a = new AccountViewModel();
             AccountDatagrid.ItemsSource = await a.GetAccountsAsync();
         }
-       async void GetLastId()
-        {
-            AccountViewModel a = new AccountViewModel();
-            var lid = await a.GetScalerValueAsync("select isnull(max(AccountId),0) from Account");
-            lastid = int.Parse(lid) + 1;
-        }
+     
 
         private async void btnInsert_Click(object sender, RoutedEventArgs e)
         {
@@ -65,14 +62,15 @@ namespace LibraryManagementApplication.Views
                     throw new System.Exception("Recovery phrase must be inserted");
                 }
                 Account account = new Account();
-                GetLastId();
+                AccountViewModel accountViewModel = new AccountViewModel();
+                var lid = await accountViewModel.GetScalerValueAsync("select isnull(max(AccountId),0) from Account");
+                lastid = int.Parse(lid) + 1;
                 account.AccountId= lastid;
                 account.Fullname= txtFullname.Text;
                 account.Permission= txtPermission.Text;
                 account.Password=txtPass.Text;
                 account.RecoveryPhrase= txtRecovery.Text;
                 account.Username = txtUser.Text;
-                AccountViewModel accountViewModel = new AccountViewModel();
                await accountViewModel.ExcuteAsyncWithParameters("insert into Account values(@id,@full,@user,@pass,@re,@perm)",
                     new Dictionary<string, object> {
                         {"@id",account.AccountId },
@@ -141,7 +139,6 @@ namespace LibraryManagementApplication.Views
                         {"@perm",account.Permission },
                      });
                 UpdateId = 0;
-                GetLastId();
                 AccountDatagrid.ItemsSource = await accountViewModel.GetAccountsAsync();
 
             }
@@ -169,7 +166,7 @@ namespace LibraryManagementApplication.Views
             
             GetdatagridItems();
             clear();
-            GetLastId();
+            
         }
 
         private async void btnSearch_Click(object sender, RoutedEventArgs e)
@@ -227,6 +224,7 @@ namespace LibraryManagementApplication.Views
         }
         void clear()
         {
+            GetdatagridItems();
             txtFullname.Text = "";
             txtPass.Text = "";
             txtPermission.SelectedIndex = 1;
