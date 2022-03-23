@@ -30,6 +30,7 @@
             <Label  x:Name="lblPermission" FontSize="14" Foreground="White"></Label>
         </StackPanel>
         <StackPanel Grid.Row="0" Background="#0066ff" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right">
+            <Button x:Name="btnSetting" Click="btnSetting_Click" BorderThickness="0" Background="Transparent" Foreground="White" Margin="0,0,10,0" FontSize="10" Width="40" Height="29" FontFamily="Microsoft JhengHei UI">Setting</Button>
             <Button x:Name="btnMinimized" Click="btnMinimized_Click" BorderThickness="0" Background="Transparent" Foreground="White" Margin="0,0,10,0" FontSize="20" Width="40" Height="29" FontFamily="Microsoft JhengHei UI">-</Button>
             <Button x:Name="btnExit" Click="btnExit_Click" BorderBrush="#0066ff" BorderThickness="0" Background="Transparent" Foreground="White" Margin="0,0,10,0" FontSize="15" Width="40" Height="29" FontFamily="Microsoft JhengHei UI">X</Button>
         </StackPanel>
@@ -40,14 +41,6 @@
                 <Button x:Name="btnLibrary" Click="btnLibrary_Click" FontSize="15" Background="#006699" Foreground="White" Width="110" Height="120">Library</Button>
                 <Button x:Name="btnPerson" Click="btnPerson_Click" FontSize="15" Background="#006699" Foreground="White" Width="110" Height="120">Person</Button>
                 <Button x:Name="btnBorrow" Click="btnBorrow_Click" FontSize="15" Background="#006699" Foreground="White" Width="110" Height="120">Borrow</Button>
-                
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Button Width="100" Height="120">Hello</Button>
-                <Button Width="100" Height="120">Hello</Button>
-                <Button Width="100" Height="120">Hello</Button>
-                <Button Width="100" Height="120">Hello</Button>
-                
             </StackPanel>
         </StackPanel>
         

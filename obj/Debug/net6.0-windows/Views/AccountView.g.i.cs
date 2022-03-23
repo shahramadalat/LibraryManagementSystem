@@ -157,7 +157,7 @@ namespace LibraryManagementApplication.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/LibraryManagementApplication;component/views/accountview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/LibraryManagementApplication;V1.0.0.0;component/views/accountview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\AccountView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

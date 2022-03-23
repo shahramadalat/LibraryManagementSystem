@@ -26,6 +26,22 @@ namespace LibraryManagementApplication.Views.Books
         {
             InitializeComponent();
             IsToChoose= isToChoose;
+            if (isToChoose=="user")
+            {
+                btnInsert.Visibility = Visibility.Collapsed;
+                btnDelete.Visibility = Visibility.Collapsed;
+                btnChoose.Visibility = Visibility.Collapsed;
+                btnCategorey.Visibility = Visibility.Collapsed;
+                btnUpdate.Visibility = Visibility.Collapsed;
+                btnLanguage.Visibility = Visibility.Collapsed;
+                txtPublishDate.Visibility = Visibility.Collapsed;
+                txtLanguage.Visibility = Visibility.Collapsed;
+                txtCategory.Visibility = Visibility.Collapsed;
+                lblSearch.Content = "Search based on Bookname, Auther and Publisher";
+                lblPublishDate.Visibility= Visibility.Collapsed;
+                lblLanguage.Visibility = Visibility.Collapsed;  
+                lblCategorey.Visibility= Visibility.Collapsed;
+            }
             if (IsToChoose == "fromLibraryInvoice")
             {
                 btnChoose.Visibility = Visibility.Visible;

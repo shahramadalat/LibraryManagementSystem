@@ -123,7 +123,7 @@
 
         </Grid>
         <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button x:Name="btnChoose" Visibility="Collapsed">Choose</Button>
+            <Button Click="btnChoose_Click" x:Name="btnChoose" Visibility="Collapsed">Choose</Button>
         </StackPanel>
 
     </Grid>

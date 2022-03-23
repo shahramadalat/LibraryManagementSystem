@@ -32,7 +32,8 @@ namespace LibraryManagementApplication.Views.Borrow
 
         private void btnBorrowInvoice_Click(object sender, RoutedEventArgs e)
         {
-
+            AddBorrowView addBorrowView = new AddBorrowView("fromBorrowInvoice");
+            addBorrowView.ShowDialog();
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)

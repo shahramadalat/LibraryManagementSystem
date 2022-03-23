@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="LibraryInvoice" Height="450" Width="800"
         WindowStartupLocation="CenterScreen"
-         WindowStyle="None"
-         WindowState="Maximized"
+        WindowStyle="None"
+        WindowState="Maximized"
         Loaded="Window_Loaded">
     <Window.Resources>
         <Style TargetType="Label">

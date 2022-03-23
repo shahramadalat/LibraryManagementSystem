@@ -22,7 +22,7 @@ namespace LibraryManagementApplication.Views.Libraries
         int LibraryInvoiceId = 0;
         public static int BookId=0;
         public static string BookName="";
-        int AccountId = 0;
+        int AccountId = Home.UserId;
         public AddToLibraryView()
         {
             InitializeComponent();
@@ -217,7 +217,6 @@ namespace LibraryManagementApplication.Views.Libraries
                     throw new Exception("please insert records to the list");
                 }
                 LibraryNoteViewModel libraryNoteViewModel = new LibraryNoteViewModel();
-                AccountId = 1;
                 await libraryNoteViewModel.ExcuteAsync($"insert into LibraryInvoice values({int.Parse(lblInvoiceId.Content.ToString().Trim())},'{txtDate.SelectedDate}',{AccountId})");
                 List<LibraryNote> libraryNotes = await libraryNoteViewModel.GetAccountsAsync();
                 InvoicePrint invoicePrint = new InvoicePrint(lblInvoiceId.Content.ToString(),AccountId,txtDate.SelectedDate);

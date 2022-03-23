@@ -140,3 +140,7 @@ C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\obj\De
 C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\obj\Debug\net6.0-windows\Views\Borrow\BorrowMainView.g.cs
 C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\obj\Debug\net6.0-windows\Views\Borrow\AddBorrowView.baml
 C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\obj\Debug\net6.0-windows\Views\Borrow\BorrowMainView.baml
+C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\obj\Debug\net6.0-windows\Views\Setting\SettingView.g.cs
+C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\obj\Debug\net6.0-windows\Views\Setting\SettingView.baml
+C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\obj\Debug\net6.0-windows\Views\Borrow\BorrowInvoicePrint.g.cs
+C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\obj\Debug\net6.0-windows\Views\Borrow\BorrowInvoicePrint.baml

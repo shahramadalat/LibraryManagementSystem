@@ -117,7 +117,8 @@ namespace LibraryManagementApplication.Views.Libraries {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/LibraryManagementApplication;component/views/libraries/invoiceprint.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/LibraryManagementApplication;V1.0.0.0;component/views/libraries/invoiceprint.xam" +
+                    "l", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Views\Libraries\InvoicePrint.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

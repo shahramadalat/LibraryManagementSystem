@@ -83,18 +83,18 @@
                 <TextBox TabIndex="2" x:Name="txtPublisher" Grid.Row="1" Grid.Column="1" ></TextBox>
 
                 <!--PublishDate-->
-                <Label Grid.Row="1" Grid.Column="2">PublishDate</Label>
+                <Label x:Name="lblPublishDate" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="89,0,0,0">PublishDate</Label>
                 <DatePicker TabIndex="3" x:Name="txtPublishDate" Grid.Row="1" Grid.Column="3" Height="30"></DatePicker>
-                
+
                 <!--Language-->
-                <Label Grid.Row="2" Grid.Column="0">Language</Label>
+                <Label x:Name="lblLanguage" Grid.Row="2" Grid.Column="0">Language</Label>
                 <TextBox IsEnabled="False" TabIndex="4" Height="30" x:Name="txtLanguage" Grid.Row="2" Grid.Column="1"></TextBox>
                 <Button Click="btnLanguage_Click" x:Name="btnLanguage" Grid.Column="2" Grid.Row="2" Width="90" Height="30">Go to Language</Button>
                 <!--Category-->
-                <Label Grid.Row="3"  Grid.Column="0">Category</Label>
+                <Label x:Name="lblCategorey" Grid.Row="3"  Grid.Column="0">Category</Label>
                 <TextBox IsEnabled="False" Height="30" TabIndex="5" x:Name="txtCategory" Grid.Row="3" Grid.Column="1"></TextBox>
                 <Button Click="btnCategorey_Click" x:Name="btnCategorey" Grid.Column="2" Grid.Row="3" Width="90" Height="30">Go to Category</Button>
-                
+
                 <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Button Click="btnInsert_Click" TabIndex="6" x:Name="btnInsert" Background="Green">Insert</Button>
@@ -127,7 +127,7 @@
                     <DataGridTextColumn Binding="{Binding CategoreyName}" Width="*" MinWidth="150" Header="Category"></DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
-          
+
 
         </Grid>
         <StackPanel Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">

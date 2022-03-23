@@ -43,11 +43,10 @@
 
         <!--Title place-->
         <StackPanel Height="29" Grid.Row="0" Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Top" Background="#0066ff">
-            <Label FontSize="15" Foreground="White">Add Borrow</Label>
+            <Label x:Name="lblTitle" FontSize="15" Foreground="White">Add Borrow</Label>
         </StackPanel>
         <!--Exit place-->
         <StackPanel Grid.Row="0" Background="#0066ff" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right">
-
             <Button x:Name="btnExit" Click="btnExit_Click" BorderBrush="#0066ff" BorderThickness="0" Background="Transparent" Foreground="White" Margin="0,0,10,0" FontSize="15" Width="40" Height="29" FontFamily="Microsoft JhengHei UI">X</Button>
         </StackPanel>
 
@@ -75,22 +74,26 @@
                 <TextBox x:Name="txtBookName" IsEnabled="False" Grid.Column="2" ></TextBox>
                 <Button TabIndex="0" HorizontalAlignment="Left"  x:Name="btnChooseBook" Click="btnChooseBook_Click" Grid.Column="3" Height="30" Width="90">Choose a book</Button>
 
-                <!--invoice id-->
-
-
                 <!--quantity-->
                 <Label Grid.Row="1" Grid.Column="1">Quantity</Label>
                 <TextBox PreviewTextInput="NumberValidationTextBox" TabIndex="1" x:Name="txtQuantity" Grid.Row="1" Grid.Column="2" ></TextBox>
 
-                <!--Person-->
-                <!--Recovery phrase-->
+                <!--search-->
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" Grid.RowSpan="2">
+                    <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                        <TextBox x:Name="txtSearch"></TextBox>
+                        <Button Click="btnSearch_Click" x:Name="btnSearch" Background="CadetBlue" Margin="10,0,0,0" Height="30">Search</Button>
+                    </StackPanel>
+                    <Label x:Name="lblSearchs" Visibility="Collapsed" HorizontalAlignment="Center">Search based on Fullname, Invoice-id and Bookname</Label>
+                </StackPanel>
 
-
-                <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5">
+                <!--buttons-->
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Button Click="btnInsert_Click" TabIndex="3" x:Name="btnInsert" Background="Green">Insert</Button>
-                        <Button Click="btnUpdate_Click" TabIndex="4" x:Name="btnUpdate">Update</Button>
                         <Button Click="btnDelete_Click" TabIndex="5" x:Name="btnDelete" Background="DarkRed">Delete</Button>
+                        <Button Visibility="Collapsed" Click="btnUpdate_Click" TabIndex="5" x:Name="btnUpdate" >Update</Button>
+                        <Button Visibility="Collapsed" Click="btnReturn_Click" TabIndex="5" Background="LightSeaGreen" x:Name="btnReturn" >Returned</Button>
                         <Button Click="btnClear_Click" TabIndex="6" x:Name="btnClear" Background="CadetBlue">Clear</Button>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -116,16 +119,17 @@
         <StackPanel Margin="0,0,0,10" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
             <Button Click="invoice_Click" x:Name="invoice" Width="90">insert invoice</Button>
             <Label Margin="15,0,0,0">Borrow Date:</Label>
-            <DatePicker x:Name="txtDate"  Height="40" TabIndex="3"  Grid.Row="2" Grid.Column="1"></DatePicker>
-            <Label Margin="15,0,0,0">Invoice Id:</Label>
-            <Label  x:Name="lblInvoiceId" IsEnabled="False" >6</Label>
-            <Button Width="90">Choose person</Button>
+            <DatePicker IsEnabled="False" x:Name="txtDate"  Height="40" TabIndex="3"  Grid.Row="2" Grid.Column="1"></DatePicker>
+            <Button Click="btnChoosePerson_Click_1" x:Name="btnChoosePerson" Width="90">Choose person</Button>
             <TextBox IsEnabled="False" Margin="10,0,0,0" x:Name="txtPerson"></TextBox>
+            <Label Margin="0,0,0,0">Invoice Id:</Label>
+            <Label x:Name="lblInvoiceId" IsEnabled="False">6</Label>
+            
         </StackPanel>
         <StackPanel Grid.Row="3" HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Center">
             <Label Margin="0,0,0,0">Return Date:</Label>
-            <DatePicker x:Name="txtReturnDate"  Height="40" TabIndex="3"  Grid.Column="1"></DatePicker>
-            <Button Click="btnBorrowClear_Click" x:Name="btnBorrowClear" Background="CadetBlue">Clear</Button>
+            <DatePicker IsEnabled="False"  x:Name="txtReturnDate"  Height="40" TabIndex="3"  Grid.Column="1"></DatePicker>
+            <Button Click="btnDeleteInvoice_Click" Visibility="Collapsed" x:Name="btnDeleteInvoice" Background="DarkRed" Width="90">Delete Invoice</Button>
         </StackPanel>
 
 

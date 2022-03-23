@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\shahr\OneDrive\Desktop\LibraryManagement\LibraryManagementSystem\App.xaml
-13-1656466947
+151713993456
 
-33-251797315
+39-845791048
 2201578750955
-Home.xaml;MainWindow.xaml;Views\AccountView.xaml;Views\Books\BooksView.xaml;Views\Books\CategoryView.xaml;Views\Books\LanguageView.xaml;Views\Borrow\AddBorrowView.xaml;Views\Borrow\BorrowMainView.xaml;Views\Borrow\PersonView.xaml;Views\Libraries\AddToLibraryView.xaml;Views\Libraries\InvoicePrint.xaml;Views\Libraries\LibraryInvoice.xaml;Views\Libraries\MainLibraryView.xaml;
+Home.xaml;MainWindow.xaml;Views\AccountView.xaml;Views\Books\BooksView.xaml;Views\Books\CategoryView.xaml;Views\Books\LanguageView.xaml;Views\Borrow\AddBorrowView.xaml;Views\Borrow\BorrowInvoicePrint.xaml;Views\Borrow\BorrowMainView.xaml;Views\Borrow\PersonView.xaml;Views\Libraries\AddToLibraryView.xaml;Views\Libraries\InvoicePrint.xaml;Views\Libraries\LibraryInvoice.xaml;Views\Libraries\MainLibraryView.xaml;Views\Setting\SettingView.xaml;
 
 False
 

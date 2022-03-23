@@ -1,0 +1,71 @@
+﻿<Window x:Class="LibraryManagementApplication.Views.Setting.SettingView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LibraryManagementApplication.Views.Setting"
+        mc:Ignorable="d"
+        Title="SettingView" Height="450" Width="800"
+           WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+         WindowState="Maximized"
+        Loaded="Window_Loaded">
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Width" Value="auto"/>
+            <Setter Property="MinWidth" Value="150"></Setter>
+            <Setter Property="Height" Value="30"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#0066ff"/>
+            <Setter Property="Foreground" Value="white"/>
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Margin" Value="10,0,0,0"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="9*"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Background="#0066ff" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right">
+            <Button x:Name="btnExit" Click="btnExit_Click" BorderBrush="#0066ff" BorderThickness="0" Background="Transparent" Foreground="White" Margin="0,0,10,0" FontSize="15" Width="40" Height="29" FontFamily="Microsoft JhengHei UI">X</Button>
+        </StackPanel>
+        <!--Title place-->
+        <StackPanel Height="29" Grid.Row="0" Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Top" Background="#0066ff">
+            <Label FontSize="15" Foreground="White">Setting</Label>
+        </StackPanel>
+        <!--Exit place-->
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <!--BooksLimit-->
+                <Label Margin="0,0,0,10" Grid.Row="0" Grid.Column="0">Books Borrow Limit</Label>
+                <TextBox PreviewTextInput="NumberValidationTextBox"  Margin="0,0,0,10" x:Name="txtBooksLimit" Grid.Column="1" Grid.Row="0"></TextBox>
+                <Label Grid.Row="1" Grid.Column="0">Books return Date Limit</Label>
+                <TextBox PreviewTextInput="NumberValidationTextBox" x:Name="txtReturndate" Grid.Column="1" Grid.Row="1"></TextBox>
+                <Button x:Name="btnSave" Click="btnSave_Click" Margin="0,10,0,0" Grid.Row="2" Grid.ColumnSpan="2">Save</Button>
+            </Grid>            
+        </StackPanel>
+
+    </Grid>
+</Window>

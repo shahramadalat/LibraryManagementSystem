@@ -3,6 +3,7 @@ using LibraryManagementApplication.Views;
 using LibraryManagementApplication.Views.Books;
 using LibraryManagementApplication.Views.Borrow;
 using LibraryManagementApplication.Views.Libraries;
+using LibraryManagementApplication.Views.Setting;
 using System.Windows;
 
 namespace LibraryManagementApplication
@@ -12,7 +13,8 @@ namespace LibraryManagementApplication
     /// </summary>
     public partial class Home : Window
     {
-        int userId;
+
+        public static int UserId;
         string userPermission,username,fullname;
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
@@ -34,6 +36,12 @@ namespace LibraryManagementApplication
 
         private void btnBooks_Click(object sender, RoutedEventArgs e)
         {
+            
+            if (userPermission=="user")
+            {
+                BooksView booksViews = new BooksView("user");
+                booksViews.ShowDialog();
+            }
             BooksView booksView = new BooksView();
             booksView.ShowDialog();
         }
@@ -57,6 +65,12 @@ namespace LibraryManagementApplication
             borrowMainView.ShowDialog();
         }
 
+        private void btnSetting_Click(object sender, RoutedEventArgs e)
+        {
+            SettingView settingView=new SettingView();
+            settingView.ShowDialog();
+        }
+
         public Home()
         {
 
@@ -64,7 +78,7 @@ namespace LibraryManagementApplication
         public Home(int userId, string fullname,string username,string userPermission)
         {
             InitializeComponent();
-            this.userId = userId;
+            UserId = userId;
             this.fullname = fullname;
             this.username = username;
             this.userPermission = userPermission;
@@ -72,6 +86,20 @@ namespace LibraryManagementApplication
             lblFullname.Content = fullname;
             lblPermission.Content = userPermission;
             lblUserID.Content = userId;
+            if (userPermission=="user")
+            {
+                btnAccount.Visibility = Visibility.Collapsed;
+                btnBorrow.Visibility= Visibility.Collapsed;
+                btnLibrary.Visibility= Visibility.Collapsed;
+                btnPerson.Visibility= Visibility.Collapsed;
+                btnSetting.Visibility= Visibility.Collapsed;
+                
+            }
+            else if (userPermission=="employee")
+            {
+                btnAccount.Visibility = Visibility.Collapsed;
+                btnSetting.Visibility = Visibility.Collapsed;
+            }
 
         }
     }

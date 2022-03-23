@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:LibraryManagementApplication"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="400" WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
         >
     <Grid>
         <Grid.ColumnDefinitions>
@@ -17,7 +18,7 @@
             
         </Grid.RowDefinitions>
         <StackPanel Grid.Column="2">
-            
+            <Button x:Name="btnExit" Click="btnExit_Click" HorizontalAlignment="Right" FontSize="15" Background="#0066ff" Height="25" Width="35" Foreground="White">X</Button>
         </StackPanel>
         <StackPanel Grid.Column="1" VerticalAlignment="Center">
             <Grid>

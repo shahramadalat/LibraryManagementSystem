@@ -28,6 +28,16 @@ namespace LibraryManagementApplication.Views.Borrow
         {
             InitializeComponent();
         }
+        string From = "";
+        public PersonView(string from)
+        {
+            InitializeComponent();
+            From=from;
+            if (from== "fromBorrowNote")
+            {
+                btnChoose.Visibility = Visibility.Visible;
+            }
+        }
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");
@@ -251,6 +261,16 @@ namespace LibraryManagementApplication.Views.Borrow
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void btnChoose_Click(object sender, RoutedEventArgs e)
+        {
+            if (From== "fromBorrowNote")
+            {
+                AddBorrowView.PersonId = UpdateId;
+                AddBorrowView.PersonName= txtFullname.Text;
+                this.Close();
+            }
         }
     }
 }
