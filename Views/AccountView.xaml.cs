@@ -35,15 +35,26 @@ namespace LibraryManagementApplication.Views
             AccountViewModel a = new AccountViewModel();
             AccountDatagrid.ItemsSource = await a.GetAccountsAsync();
         }
-     
+        void clear()
+        {
+            GetdatagridItems();
+            txtFullname.Text = "";
+            txtPass.Text = "";
+            txtPermission.SelectedIndex = 1;
+            txtRecovery.Text = "";
+            txtUser.Text = "";
+        }
+
 
         private async void btnInsert_Click(object sender, RoutedEventArgs e)
         {
             try
             {
+                #region agar batal bw nahele
                 if (txtFullname.Text == "" || txtFullname.Text == null)
                 {
                     txtFullname.Focus();
+                    //abe fulname daxlkai
                     throw new System.Exception("Fullname must be inserted");
                 }
                 if (txtUser.Text == "" || txtUser.Text == null)
@@ -60,18 +71,24 @@ namespace LibraryManagementApplication.Views
                 {
                     txtRecovery.Focus();
                     throw new System.Exception("Recovery phrase must be inserted");
-                }
+                } 
+                #endregion
                 Account account = new Account();
                 AccountViewModel accountViewModel = new AccountViewModel();
+                #region henani kota id w + 1
                 var lid = await accountViewModel.GetScalerValueAsync("select isnull(max(AccountId),0) from Account");
                 lastid = int.Parse(lid) + 1;
-                account.AccountId= lastid;
-                account.Fullname= txtFullname.Text;
-                account.Permission= txtPermission.Text;
-                account.Password=txtPass.Text;
-                account.RecoveryPhrase= txtRecovery.Text;
+                #endregion
+                #region dastnishankrdni nrxakan bo aw accountai amanawe inserti bkain
+                account.AccountId = lastid;
+                account.Fullname = txtFullname.Text;
+                account.Permission = txtPermission.Text;
+                account.Password = txtPass.Text;
+                account.RecoveryPhrase = txtRecovery.Text;
                 account.Username = txtUser.Text;
-               await accountViewModel.ExcuteAsyncWithParameters("insert into Account values(@id,@full,@user,@pass,@re,@perm)",
+                #endregion
+                #region daxlkrdni datakan bo naw tably accont la databasakaya
+                await accountViewModel.ExcuteAsyncWithParameters("insert into Account values(@id,@full,@user,@pass,@re,@perm)",
                     new Dictionary<string, object> {
                         {"@id",account.AccountId },
                         {"@full",account.Fullname },
@@ -79,8 +96,9 @@ namespace LibraryManagementApplication.Views
                         {"@pass",account.Password },
                         {"@re",account.RecoveryPhrase },
                         {"@perm",account.Permission },
-                    });
-               clear();
+                    }); 
+                #endregion
+                clear();
                AccountDatagrid.ItemsSource =  await accountViewModel.GetAccountsAsync();
 
             }
@@ -116,12 +134,12 @@ namespace LibraryManagementApplication.Views
                 }
                 Account account = new Account();
                 AccountViewModel accountViewModel = new AccountViewModel();
+                // LERA SAIRAKA BZANE KA AW ACCOUNT IDYAY AMANWE UPDATEY BKAIN HAMANA YAN NA
                 int count = int.Parse(await accountViewModel.GetScalerValueAsync($"select count(AccountId) from Account where AccountId = {UpdateId}"));
                 if (count==0 || count < 1)
                 {
                     throw new System.Exception("Unsuccessfull, please try again");
                 }
-                
                 account.AccountId = UpdateId;
                 account.Fullname = txtFullname.Text;
                 account.Permission = txtPermission.Text;
@@ -220,16 +238,7 @@ namespace LibraryManagementApplication.Views
         {
             txtFullname.Focus();
             clear();
-            GetdatagridItems();
         }
-        void clear()
-        {
-            GetdatagridItems();
-            txtFullname.Text = "";
-            txtPass.Text = "";
-            txtPermission.SelectedIndex = 1;
-            txtRecovery.Text = "";
-            txtUser.Text = "";
-        }
+       
     }
 }

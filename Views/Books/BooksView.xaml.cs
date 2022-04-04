@@ -13,6 +13,8 @@ namespace LibraryManagementApplication.Views.Books
     /// </summary>
     public partial class BooksView : Window
     {
+        //BooksView.LanguageId
+        //BooksView.CategoryId
         public static int? LanguageId, CategoryId;
         public static string Language,Category;
         int lastid, UpdateId;
@@ -112,7 +114,7 @@ namespace LibraryManagementApplication.Views.Books
                 book.Publishar = txtPublisher.Text;
                 book.LanguageId = LanguageId;
                 book.CategoreyId = CategoryId;
-                await bookViewModel.ExcuteAsyncWithParameters("insert into Book values(@id,@name,@auth,@pub,@pubdate,@lang,@cat)",
+                await bookViewModel.ExcuteAsyncWithParameters("insert into Book values(@id,@name,@auth,@pub,@pubdate,@lang,@cat                                  )",
                      new Dictionary<string, object> {
                         {"@id",book.BookId },
                         {"@name",book.BookName},

@@ -85,7 +85,7 @@ namespace LibraryManagementApplication.Views.Setting {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/LibraryManagementApplication;V1.0.0.0;component/views/setting/settingview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/LibraryManagementApplication;component/views/setting/settingview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Views\Setting\SettingView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -181,8 +181,7 @@ namespace LibraryManagementApplication.Views.Libraries {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/LibraryManagementApplication;V1.0.0.0;component/views/libraries/libraryinvoice.x" +
-                    "aml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/LibraryManagementApplication;component/views/libraries/libraryinvoice.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Views\Libraries\LibraryInvoice.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

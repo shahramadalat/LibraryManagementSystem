@@ -33,10 +33,17 @@ namespace LibraryManagementApplication
                     for (int i = 0; i < reader.FieldCount; i++)
                     {
                         resultList.Add(reader[i].ToString());
+                        // resultList[0] id        1
+                        // resultList[1] fuulname  harnas abubabkr
+                        // 2 username harnas
+                        // 3 password 123
+                        // 4 recovery aaa
+                        // 5 permission admin
+
                     }
                 }
             }
-            
+            //result list
             con.Close();
         }
 

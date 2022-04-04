@@ -16,6 +16,40 @@ namespace LibraryManagementApplication
 
         public static int UserId;
         string userPermission,username,fullname;
+        public Home()
+        {
+
+        }
+        //yakam sht ka ish dakat
+        public Home(int userId, string fullname, string username, string userPermission)
+        {
+            InitializeComponent();
+            UserId = userId;
+            this.fullname = fullname;
+            this.username = username;
+            this.userPermission = userPermission;
+
+            lblFullname.Content = fullname;
+            lblPermission.Content = userPermission;
+            lblUserID.Content = userId;
+            if (userPermission == "user")
+            {
+                // shardnawai am buttonana
+                btnAccount.Visibility = Visibility.Collapsed;
+                btnBorrow.Visibility = Visibility.Collapsed;
+                btnLibrary.Visibility = Visibility.Collapsed;
+                btnPerson.Visibility = Visibility.Collapsed;
+                btnSetting.Visibility = Visibility.Collapsed;
+
+            }
+            else if (userPermission == "employee")
+            {
+                // am dwanaman le shardotawa
+                btnAccount.Visibility = Visibility.Collapsed;
+                btnSetting.Visibility = Visibility.Collapsed;
+            }
+
+        }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
@@ -71,36 +105,6 @@ namespace LibraryManagementApplication
             settingView.ShowDialog();
         }
 
-        public Home()
-        {
-
-        }
-        public Home(int userId, string fullname,string username,string userPermission)
-        {
-            InitializeComponent();
-            UserId = userId;
-            this.fullname = fullname;
-            this.username = username;
-            this.userPermission = userPermission;
-
-            lblFullname.Content = fullname;
-            lblPermission.Content = userPermission;
-            lblUserID.Content = userId;
-            if (userPermission=="user")
-            {
-                btnAccount.Visibility = Visibility.Collapsed;
-                btnBorrow.Visibility= Visibility.Collapsed;
-                btnLibrary.Visibility= Visibility.Collapsed;
-                btnPerson.Visibility= Visibility.Collapsed;
-                btnSetting.Visibility= Visibility.Collapsed;
-                
-            }
-            else if (userPermission=="employee")
-            {
-                btnAccount.Visibility = Visibility.Collapsed;
-                btnSetting.Visibility = Visibility.Collapsed;
-            }
-
-        }
+      
     }
 }

@@ -12,6 +12,7 @@ namespace LibraryManagementApplication.ViewModels
         {
 
         }
+        // bo datagridaka
         public async Task<List<Account>> GetAccountsAsync()
         { 
             await con.OpenAsync();
@@ -25,14 +26,6 @@ namespace LibraryManagementApplication.ViewModels
             var accounts = await con.QueryAsync<Account>("sp_GetFilteredAccount",parameters,commandType:System.Data.CommandType.StoredProcedure);
             await con.CloseAsync();
             return accounts.ToList();
-
         }
-      
-            
-
-        
-
-
-
     }
 }

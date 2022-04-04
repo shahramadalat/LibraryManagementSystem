@@ -133,7 +133,7 @@ namespace LibraryManagementApplication.Views.Books {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/LibraryManagementApplication;V1.0.0.0;component/views/books/categoryview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/LibraryManagementApplication;component/views/books/categoryview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Views\Books\CategoryView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -204,7 +204,7 @@ namespace LibraryManagementApplication.Views.Borrow
                 var countBorrowBook = int.Parse(await borrowNoteDatabase.GetScalerValueAsync($"select isnull(sum(Quantity),0) from Borrow where IsReturned=0 and BookId={BookId}"));
                 var beforeResult = countLibraryBook - countBorrowBook;
                 var result = beforeResult - int.Parse(txtQuantity.Text);
-                if (result < 0)
+                if (result <= 0)
                 {
                     throw new Exception($"you inserted books more than existing in Library \nthere is {beforeResult} books in Library\n you inserted {txtQuantity.Text} books");
                 }

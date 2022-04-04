@@ -12,6 +12,8 @@ namespace LibraryManagementApplication.ViewModels
     internal class Parrentconnection
     {
         public SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-IRGJ8GC; Initial Catalog=LibraryDb; Integrated Security=True; Encrypt=True; TrustServerCertificate=True; User Instance=False");
+
+        // methodaka dawai parameter aka, ka codey sql a, 1 data agarenetawa
         public async Task<string> GetScalerValueAsync(string sql)
         {
             await con.CloseAsync();
@@ -21,6 +23,7 @@ namespace LibraryManagementApplication.ViewModels
             return lastId.ToString();
         }
 
+        // dawai 2 parameter aka, sql wa parameter bo sqlaka
         public async Task<int> ExcuteAsyncWithParameters(string sql,Dictionary<string,object> parameters)
         {
             await con.OpenAsync();
